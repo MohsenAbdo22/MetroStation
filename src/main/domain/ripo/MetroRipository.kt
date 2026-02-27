@@ -1,4 +1,4 @@
 interface MetroRipository {
-    fun GetStations(): List<StationDto>
+    fun GetStations(): List<Station>
     fun GetTravelTime(): Int
 }

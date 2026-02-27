@@ -5,18 +5,18 @@ import Station
 import StationDto
 
 object MetroMapper {
-    fun todMain(dto:StationDto):Station{
+    fun todMain(dto: StationDto):Station{
         return Station(
             id =dto.id,
             name = dto.name,
             order = dto.order,
             isTransfer = dto.isTransfer,
-            line = toMetroLine(dto.line),
-            transferLine = dto.transferLine.map { toMetroLine(it) }
+            line = dto.line.toMetroLine(),
+            transferLine = dto.transferLine.map { it.toMetroLine() }
         )
     }
-    private  fun  toMetroLine(line : String):MetroLine=
-        when(line.trim().uppercase()){
+    private  fun  String.toMetroLine():MetroLine=
+        when(this.trim().uppercase()){
             "LINE_1","FIRST LINE","1"->MetroLine.LINE_1
             "LINE_2","SECAND","2"->MetroLine.LINE_2
             "LINE_3","THIRD LINE","3"->MetroLine.LINE_3

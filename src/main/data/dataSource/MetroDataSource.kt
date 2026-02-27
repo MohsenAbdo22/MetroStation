@@ -1,4 +1,4 @@
 interface MetroDataSource {
-    fun loadStations(): List<Station>
+    fun loadStations(): List<StationDto>
     fun GetTravelTime(): Int
 }
